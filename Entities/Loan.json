@@ -1,0 +1,66 @@
+{
+  "name": "Loan",
+  "type": "object",
+  "properties": {
+    "book_id": {
+      "type": "string",
+      "description": "ID buku yang dipinjam"
+    },
+    "member_id": {
+      "type": "string",
+      "description": "ID anggota peminjam"
+    },
+    "loan_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Tanggal pinjam"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Tanggal jatuh tempo"
+    },
+    "return_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Tanggal pengembalian aktual"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "borrowed",
+        "returned",
+        "overdue",
+        "lost"
+      ],
+      "default": "borrowed",
+      "description": "Status peminjaman"
+    },
+    "fine_amount": {
+      "type": "number",
+      "default": 0,
+      "description": "Jumlah denda"
+    },
+    "fine_paid": {
+      "type": "boolean",
+      "default": false,
+      "description": "Status pembayaran denda"
+    },
+    "extension_count": {
+      "type": "integer",
+      "default": 0,
+      "description": "Jumlah perpanjangan"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Catatan tambahan"
+    }
+  },
+  "required": [
+    "book_id",
+    "member_id",
+    "loan_date",
+    "due_date"
+  ],
+  "rls": {}
+}

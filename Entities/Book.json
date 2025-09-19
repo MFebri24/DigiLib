@@ -1,0 +1,100 @@
+{
+  "name": "Book",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Judul buku"
+    },
+    "author": {
+      "type": "string",
+      "description": "Penulis buku"
+    },
+    "publisher": {
+      "type": "string",
+      "description": "Penerbit"
+    },
+    "publication_year": {
+      "type": "integer",
+      "description": "Tahun terbit"
+    },
+    "isbn": {
+      "type": "string",
+      "description": "ISBN buku"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "fiksi",
+        "nonfiksi",
+        "sains",
+        "teknologi",
+        "sejarah",
+        "biografi",
+        "anak",
+        "agama",
+        "ekonomi",
+        "kesehatan",
+        "politik",
+        "pendidikan",
+        "seni",
+        "olahraga",
+        "lainnya"
+      ],
+      "description": "Kategori buku"
+    },
+    "genre": {
+      "type": "string",
+      "description": "Genre buku"
+    },
+    "description": {
+      "type": "string",
+      "description": "Deskripsi buku"
+    },
+    "cover_url": {
+      "type": "string",
+      "description": "URL cover buku"
+    },
+    "total_stock": {
+      "type": "integer",
+      "default": 1,
+      "description": "Total stok buku"
+    },
+    "available_stock": {
+      "type": "integer",
+      "default": 1,
+      "description": "Stok tersedia"
+    },
+    "pages": {
+      "type": "integer",
+      "description": "Jumlah halaman"
+    },
+    "language": {
+      "type": "string",
+      "default": "indonesia",
+      "description": "Bahasa buku"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "default": 0,
+      "description": "Rating buku"
+    },
+    "total_borrowed": {
+      "type": "integer",
+      "default": 0,
+      "description": "Total peminjaman"
+    }
+  },
+  "required": [
+    "title",
+    "author",
+    "category"
+  ],
+  "rls": {
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

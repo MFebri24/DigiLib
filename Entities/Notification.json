@@ -1,0 +1,66 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "recipient_id": {
+      "type": "string",
+      "description": "ID penerima notifikasi"
+    },
+    "title": {
+      "type": "string",
+      "description": "Judul notifikasi"
+    },
+    "message": {
+      "type": "string",
+      "description": "Pesan notifikasi"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "due_reminder",
+        "overdue",
+        "new_book",
+        "return_confirmation",
+        "fine_notice"
+      ],
+      "description": "Tipe notifikasi"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "description": "Prioritas notifikasi"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Status dibaca"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Tanggal terjadwal"
+    },
+    "sent_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Tanggal terkirim"
+    }
+  },
+  "required": [
+    "recipient_id",
+    "title",
+    "message",
+    "type"
+  ],
+  "rls": {
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
